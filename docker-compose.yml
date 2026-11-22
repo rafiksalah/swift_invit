@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: swiftinvite_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: swiftinvite_dev
+      MYSQL_USER: swift_dev_user
+      MYSQL_PASSWORD: swift_dev_password
+      MYSQL_ROOT_PASSWORD: swift_root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u$$MYSQL_USER", "-p$$MYSQL_PASSWORD"]
+      timeout: 10s
+      retries: 5
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: swiftinvite_web
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mysql://swift_dev_user:swift_dev_password@db:3306/swiftinvite_dev
+      - NEXTAUTH_SECRET=local_nextauth_secret_key_123
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
