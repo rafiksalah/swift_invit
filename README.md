@@ -9,12 +9,15 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+[![Live Client Preview](https://img.shields.io/badge/Live%20Client%20Preview-GitHub%20Pages-success?style=for-the-badge&logo=github)](https://rafiksalah.github.io/swift_invit/)
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy%20with-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/rafiksalah/swift_invit)
 
 <p align="center">
   <strong>Lightweight, frictionless web-based event invitation and gate check-in system packaged for zero-configuration Docker deployment.</strong>
 </p>
 
 <p align="center">
+  <a href="https://rafiksalah.github.io/swift_invit/"><strong>🚀 Live Client Preview</strong></a> •
   <a href="#-key-features">Key Features</a> •
   <a href="#-architecture--flow">Architecture</a> •
   <a href="#-tech-stack">Tech Stack</a> •
